@@ -4,7 +4,7 @@ class CreateProposals < ActiveRecord::Migration
       t.string :name
       t.datetime :start_date
       t.datetime :end_date
-      t.integer :zip
+      t.string :zip
       t.references :owner, index: true
 
       t.timestamps

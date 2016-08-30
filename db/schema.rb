@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20160830163322) do
   add_index "acceptances", ["sitter_id"], name: "index_acceptances_on_sitter_id", using: :btree
 
   create_table "animals", force: true do |t|
-    t.string   "type"
+    t.string   "kind"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20160830163322) do
   create_table "jobs", force: true do |t|
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer  "zip"
+    t.string   "zip"
     t.integer  "owner_rating"
     t.integer  "sitter_rating"
     t.integer  "owner_id"
@@ -52,8 +52,10 @@ ActiveRecord::Schema.define(version: 20160830163322) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.integer  "zip"
-    t.integer  "phone"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "address"
+    t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -85,7 +87,7 @@ ActiveRecord::Schema.define(version: 20160830163322) do
     t.string   "name"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer  "zip"
+    t.string   "zip"
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -98,10 +100,12 @@ ActiveRecord::Schema.define(version: 20160830163322) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.integer  "zip"
-    t.integer  "phone"
+    t.string   "zip"
+    t.string   "phone"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.string   "address"
+    t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

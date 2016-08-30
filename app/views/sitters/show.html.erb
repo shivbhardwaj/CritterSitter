@@ -1,0 +1,21 @@
+<h1>Welcome, <%=@sitter.first_name %></h1>
+
+<h3>Propoals</h3>
+
+<% @proposals.each do |p| %>
+  <p> <%=p.name%></p>
+  <p> Dates: <%=p.start_date%> - <%=p.end_date%></p>
+  <p> Requestor Name: <a href="/owners/<%=@owner.id%>"><%=@owner.first_name%></a>
+  <form action="/jobs" method="post">
+    <input type="submit" name="accept_proposal" value="Accept">
+  </form>
+  <form action="" method="post">
+    <input type="submit" name="decline_proposal" value="Decline">
+  </form>
+  <br>
+<%end%>
+<p>
+  this is going to have all the propoals for this sitter....
+</p>
+
+<a href="/sitters/<%=session[:sitter_id]%>/edit">Edit</a>

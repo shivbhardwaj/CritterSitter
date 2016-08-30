@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  get "sitters/new" => "sitters#new"
+  get "sitters/:id" => "sitters#show"
+  post "sitters" => "sitters#create"
+  get "sitters/:id/edit" => "sitters#edit"
+  get '/' => 'owners#index'
+  post '/create'=>'owners#create'
+  get '/profile/addpetpage'=>'owners#addpetpage'
+  post '/addpet' =>'owners#addpet'
+  patch "sitters/:id" => "sitters#update"
+  delete "sitters/:id" => "sitters#destroy"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

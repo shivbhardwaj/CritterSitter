@@ -3,7 +3,7 @@ class CreateJobs < ActiveRecord::Migration
     create_table :jobs do |t|
       t.datetime :start_date
       t.datetime :end_date
-      t.integer :zip
+      t.string :zip
       t.integer :owner_rating
       t.integer :sitter_rating
       t.references :owner, index: true
