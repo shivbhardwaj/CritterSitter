@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get '/' => 'owners#index'
+  post '/create'=>'owners#create'
+  get '/profile/addpetpage'=>'owners#addpetpage'
+  post '/addpet' =>'owners#addpet'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
