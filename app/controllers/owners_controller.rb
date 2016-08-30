@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class OwnersController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -40,4 +41,12 @@ class OwnersController < ActionController::Base
         end
 
 
+=======
+class OwnersController < ApplicationController
+  def index
+  end
+
+  def create
+  end
+>>>>>>> 498f9ca... Shawns first commit
 end
