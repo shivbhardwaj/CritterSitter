@@ -1,4 +1,5 @@
 class SittersController < ApplicationController
+  layout 'application'
   #profile creation for sitter
   def create
     @sitter=Sitter.create(sitter_params)
