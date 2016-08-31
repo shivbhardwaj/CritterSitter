@@ -57,6 +57,16 @@
       <form id='signup' action="/sittercreate" method="post">
 				<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
         <h1 id='hsignup'>Sitter Sign Up</h1>
+
+        <img id='testimonials' src='/hamsters.jpg'>
+        <img id='custs' src='/customers.png'>
+
+    <div id='sitter_signup'>
+
+         <form id='signup' action="/sitters" method="post">
+					<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+        	<h1 id='hsignup'>Sitter Sign Up</h1>
+
         <fieldset>
           <legend><span class="number">*</span>Please tell us about yourself</legend>
 
