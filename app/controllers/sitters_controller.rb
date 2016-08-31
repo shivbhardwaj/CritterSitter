@@ -1,8 +1,8 @@
 class SittersController < ApplicationController
   #profile creation for sitter
-  def new
-    @animals=Animal.all
-  end
+  # def new
+  #   @animals=Animal.all
+  # end
 
   def create
     @sitter=Sitter.create sitter_params

@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
 
-  get "sitters/new" => "sitters#new"
-  get "sitters/:id" => "sitters#show"
   post "sitters" => "sitters#create"
   get "sitters/:id/edit" => "sitters#edit"
   root 'owners#index'
-  post '/create'=>'owners#create'
+  post '/owners'=>'owners#create'
   get '/profile/addpetpage'=>'owners#addpetpage'
   post '/addpet' =>'owners#addpet'
+  get "sitters/:id" => "sitters#show"
   patch "sitters/:id" => "sitters#update"
   delete "sitters/:id" => "sitters#destroy"
 

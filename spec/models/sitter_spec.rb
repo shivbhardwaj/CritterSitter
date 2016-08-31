@@ -31,8 +31,8 @@ RSpec.describe Sitter, type: :model do
     password_confirmation: "password",
     zip: '95014',
     phone: '123456789',
-    start_date: '09/10/16',
-    end_date: '09/14/16',
+    start_date: '2016-09-15',
+    end_date: '2016-09-18',
     address: "1920 Zanker Road",
     city: 'San Jose'
    )
