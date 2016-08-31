@@ -51,15 +51,12 @@
 	<div class="container">
     	<h2>Sitter Registration</h2>
     	<h6>Please fill out our registration form.</h6>
-
-        <img id='testimonials' src='/hamsters.jpg'>
-        <img id='custs' src='/customers.png'>
-
-    <div id='sitter_signup'>
-         <form id='signup' action="/sitters" method="post">
-					<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-        	<h1 id='hsignup'>Sitter Sign Up</h1>
-
+      <img id='testimonials' src='/hamsters.jpg'>
+      <img id='custs' src='/customers.png'>
+    	<div id='sitter_signup'>
+      <form id='signup' action="/sittercreate" method="post">
+				<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+        <h1 id='hsignup'>Sitter Sign Up</h1>
         <fieldset>
           <legend><span class="number">*</span>Please tell us about yourself</legend>
 
@@ -139,18 +136,10 @@
           <label class='signlabel' for='zip'>Zip Code:</label>
           <input type='text' id='zip' name='sitter[zip]'>
 
-         <label>I am willing to care for the following:</label><br>
+          <p>I am willing to care for the following:</p>
 					 <% @animals.each do |a| %>
-					 <input type='checkbox' name='sitter_preference' value="<%=a.id%>"><%=a.kind%>&nbsp;&nbsp;
+						<input type='checkbox' name='preference[]' value="<%=a.id%>"><%=a.kind%>&nbsp;&nbsp;
 					 <%end%>
-        <!--   <input type="checkbox" id="dog" value="dogs" name="dogs"><label class="interests" for="dogs">Dogs</label>
-          <input type="checkbox" id="cat" value="cats" name="cats"><label class="interests" for="cats">Cats</label>
-          <input type="checkbox" id="fish" value="fish" name="fish"><label class="interests" for="fish">Fish</label>
-
-         <input type="checkbox" id="reptile" value="reptile" name="reptile"><label class="interests" for="reptile">Reptiles</label>
-
-          <input type="checkbox" id="exotic" value="exotic" name="exotic"><label class="interests" for="exotic">Exotic</label> -->
-
 					<p>I am available during the following dates:</p>
 				  <p>Start: <input type="date" name="sitter[start_date]">
 				  End: <input type="date" name="sitter[end_date]"></p>
@@ -160,7 +149,6 @@
 
           <label class='signlabel' for="password_confirmation">Password Confirmation:</label>
           <input type="password" id="password" name="sitter[password_confirmation]">
-
         </fieldset>
         <input id ='signsub' type="submit" value="Register">
       </form>
@@ -181,11 +169,11 @@
         <fieldset>
           <legend><span class="number">*</span>Your Info</legend>
 
-          <label class='signlabel' for="fname">First Name:</label>
-          <input type="text" id="fname" name="owner[first_name]">
+          <label class='signlabel' for="first_name">First Name:</label>
+          <input type="text" id="first_name" name="owner[first_name]">
 
-          <label class='signlabel' for="lname">Last Name:</label>
-          <input type="text" id="lname" name="owner[last_name]">
+          <label class='signlabel' for="last_name">Last Name:</label>
+          <input type="text" id="last_name" name="owner[last_name]">
 
           <label class='signlabel' for="email">Email:</label>
           <input type="email" id="email" name="owner[email]">

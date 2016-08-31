@@ -1,17 +1,22 @@
 class SittersController < ApplicationController
   #profile creation for sitter
-  # def new
-  #   @animals=Animal.all
-  # end
-
   def create
-    @sitter=Sitter.create sitter_params
+    @sitter=Sitter.create(sitter_params)
     if @sitter
       session[:sitter_id]=@sitter.id
+      @preference=params[:preference]
+      puts @sitter.id, "This is the @sitter.id"
+
+      new_sitter=Sitter.last
+      puts new_sitter, 'this is new sitter'
+      puts @preference, 'this is @pref'
+      @preference.each do |ani|
+        Prefence.create(sitter_id: new_sitter.id, animal_id: ani.to_i)
+      end
       redirect_to "/sitters/#{@sitter.id}"
     else
       flash[:errors]=@sitter.errors.full_messages
-      redirect_to :back
+      redirect_to "/"
     end
   end
   #sitter dashboard to view/accept proposals
@@ -39,6 +44,6 @@ class SittersController < ApplicationController
 
   private
     def sitter_params
-      params.require(:sitter).permit(:first_name, :last_name, :password, :password_confirmation, :email, :phone, :zip, :start_date, :end_date)
+      params.require(:sitter).permit(:first_name, :last_name, :password, :password_confirmation, :email, :phone, :zip, :state, :address, :city, :start_date, :end_date)
     end
 end

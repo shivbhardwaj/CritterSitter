@@ -11,6 +11,7 @@ class CreateSitters < ActiveRecord::Migration
       t.datetime :end_date
       t.string :address
       t.string :city
+      t.string :state
 
       t.timestamps
     end

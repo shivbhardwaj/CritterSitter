@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160830163322) do
     t.string   "phone"
     t.string   "address"
     t.string   "city"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -106,6 +107,7 @@ ActiveRecord::Schema.define(version: 20160830163322) do
     t.datetime "end_date"
     t.string   "address"
     t.string   "city"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

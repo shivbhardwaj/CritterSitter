@@ -12,13 +12,9 @@ class Sitter < ActiveRecord::Base
   email_regex = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
   validates :email, presence: true, :uniqueness => {case_sensitive: false}, :format => { :with => email_regex }
   validates :password_digest, confirmation: true
-<<<<<<< HEAD
   validates :end_date, date: {after_or_equal_to: :start_date}, on: [:create]
   validates :start_date, date: {after_or_equal_to: Time.now}, on: [:create]
-=======
   # validates_date  :end_date, :on_or_after => :start_date,
   #                 :on_or_after_message => 'must be after start date'
   # validates_date :start_date, :on_or_after=> Date.today, on: [:create]
-
->>>>>>> a459ce3dc8f38dd9e4d4c6ca8fa85b633c607ff2
 end

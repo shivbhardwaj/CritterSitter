@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  post "sitters" => "sitters#create"
+  post "/sittercreate" => "sitters#create"
   get "sitters/:id/edit" => "sitters#edit"
   root 'owners#index'
   post '/owners'=>'owners#create'
