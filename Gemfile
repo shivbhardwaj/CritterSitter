@@ -38,10 +38,10 @@ gem 'bcrypt', '~> 3.1.7'
 group :test, :development do
   gem 'rspec-rails'
   gem 'database_cleaner'
-end
-group :test do
   gem 'capybara'
+  gem 'rspec'
 end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
