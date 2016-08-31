@@ -19,7 +19,7 @@ gem 'hirb'
 gem 'footnotes', '~> 0.0.1'
 
 gem 'carrierwave', '~> 0.11.2'
-# gem 'rmagick', '~> 2.16'
+gem 'rmagick', '~> 2.16'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
