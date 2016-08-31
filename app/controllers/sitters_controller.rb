@@ -1,6 +1,6 @@
 class SittersController < ApplicationController
   layout 'application'
-  #profile creation for sitter
+
   def log
     sitter = Sitter.find_by_email(params[:email])
     if sitter
@@ -9,20 +9,27 @@ class SittersController < ApplicationController
     else
       flash[:errors] = ["Invalid login"]
       redirect_to :back
-    end 
+    end
   end
+
+  def logout
+    session[:sitter_id] = nil
+    redirect_to "/"
+  end
+
   def create
     @sitter=Sitter.create(sitter_params)
+    puts "ths is at sitter", @sitter.first_name
     if @sitter
       session[:sitter_id]=@sitter.id
       @preference=params[:preference]
-      puts @sitter.id, "This is the @sitter.id"
+      puts @sitter, "This is the @sitter"
 
-      new_sitter=Sitter.last
-      puts new_sitter, 'this is new sitter'
+      @new_sitter=Sitter.last
+      puts @new_sitter, 'this is new sitter'
       puts @preference, 'this is @pref'
       @preference.each do |ani|
-        Prefence.create(sitter_id: new_sitter.id, animal_id: ani.to_i)
+        Prefence.create(sitter_id: @new_sitter.id, animal_id: ani.to_i)
       end
       redirect_to "/sitters/#{@sitter.id}"
     else

@@ -15,11 +15,12 @@ Rails.application.routes.draw do
   get '/owners/:id/show' => 'owners#show'
   post '/proposals' => 'proposals#create'
 
-  
+  get '/clear' => 'owners#clear'
   get '/login' => 'owners#login'
   post '/owners/login' => 'owners#log'
   post '/sitters/login' => 'sitters#log'
- 
+  delete '/sitters' =>'sitters#logout'
+  delete '/owners' =>'owners#logout'
 
   post "/sitterscreate" => "sitters#create"
 
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
   get "sitters/:id" => "sitters#show"
   patch "sitters/:id" => "sitters#update"
   delete "sitters/:id" => "sitters#destroy"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
