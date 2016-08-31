@@ -35,6 +35,8 @@ gem 'spring',        group: :development
 
 gem 'rename'
 gem 'bcrypt', '~> 3.1.7'
+gem 'validates_timeliness'
+gem 'date_validator'
 group :test, :development do
   gem 'rspec-rails'
   gem 'database_cleaner'
