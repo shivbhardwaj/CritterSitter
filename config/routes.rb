@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   get 'acceptances/create'
 
-   get 'acceptances/create'
 
   get 'proposals/show'
 
@@ -20,7 +19,10 @@ Rails.application.routes.draw do
   get '/login' => 'owners#login'
   post '/owners/login' => 'owners#log'
   post '/sitters/login' => 'sitters#log'
-  post "/sittercreate" => "sitters#create"
+ 
+
+  post "/sitterscreate" => "sitters#create"
+
   get "sitters/:id/edit" => "sitters#edit"
   root 'owners#index'
   post '/owners'=>'owners#create'

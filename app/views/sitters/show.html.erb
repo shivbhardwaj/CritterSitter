@@ -1,5 +1,8 @@
+
 <h1>Welcome, <%=@sitter.first_name %></h1>
 <%= session[:sitter_id] %>
+
+
 <h3>Propoals</h3>
 
 <% @proposals.each do |p| %>
@@ -18,3 +21,4 @@
 <%end%>
 
 <a href="/sitters/<%=session[:sitter_id]%>/edit">Edit</a>
+

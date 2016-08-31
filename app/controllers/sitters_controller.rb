@@ -1,4 +1,5 @@
 class SittersController < ApplicationController
+  layout 'application'
   #profile creation for sitter
   def log
     sitter = Sitter.find_by_email(params[:email])
