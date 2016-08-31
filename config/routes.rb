@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
+  get 'proposals/create'
 
+  get 'acceptances/create'
+
+   get 'acceptances/create'
+
+  get 'proposals/show'
+
+  get 'pets/show'
+
+
+  post "acceptances/:id/create" => "acceptances#create"
+  post "/jobs/create" => "jobs#create"
+
+  get '/owners/:id/show' => 'owners#show'
+  post '/proposals' => 'proposals#create'
+
+  
+  get '/login' => 'owners#login'
+  post '/owners/login' => 'owners#log'
+  post '/sitters/login' => 'sitters#log'
   post "/sittercreate" => "sitters#create"
   get "sitters/:id/edit" => "sitters#edit"
   root 'owners#index'

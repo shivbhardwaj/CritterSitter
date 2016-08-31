@@ -1,5 +1,15 @@
 class SittersController < ApplicationController
   #profile creation for sitter
+  def log
+    sitter = Sitter.find_by_email(params[:email])
+    if sitter
+      session[:sitter_id] = sitter.id
+      redirect_to "/sitters/#{session[:sitter_id]}"
+    else
+      flash[:errors] = ["Invalid login"]
+      redirect_to :back
+    end 
+  end
   def create
     @sitter=Sitter.create(sitter_params)
     if @sitter
@@ -27,6 +37,7 @@ class SittersController < ApplicationController
 
   def edit
     @sitter=Sitter.find(session[:sitter_id])
+    @animals = Animal.all
   end
 
   def update
@@ -39,8 +50,9 @@ class SittersController < ApplicationController
  def destroy
    Sitter.find(session[:sitter_id]).destroy
    session.clear
-   redirect_to "/crittersitter"
+   redirect_to "/"
  end
+
 
   private
     def sitter_params

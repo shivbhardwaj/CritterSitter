@@ -2,6 +2,18 @@ class OwnersController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  def login 
+  end
+  def log
+    owner = Owner.find_by_email(params[:email])
+    if owner
+      session[:id] = owner.id
+      redirect_to "/owners/#{session[:id]}/show"
+    else
+      flash[:errors] = ["Invalid login"]
+      redirect_to :back
+    end 
+  end
   def index
     @animals=Animal.all
   end
@@ -19,23 +31,28 @@ class OwnersController < ActionController::Base
           end
 	end
 	def addpetpage
+    @animal = Animal.all
 
 	end
 	def addpet
 		pet = Pet.new(animal_params)
 		  if pet.valid?
              pet.save
-             redirect_to "/dashboardpetowner!!!!!!!"
+             redirect_to "/owners/#{session[:id]}/show"
           else
               flash[:errors]=pet.errors.full_messages
               redirect_to :back
           end
 	end
+  def show
+    @pet = Pet.where(owner_id: session[:id])
+    
+  end
 	private
 	 	def animal_params
             params.require(:pet).permit(:name, :age, :kind)
         end
         def owner_params
-            params.require(:owner).permit(:first_name, :last_name, :email, :zip, :password, :password_confirmation, :phone, :address, :city)
+            params.require(:owner).permit(:first_name, :last_name, :email, :zip, :password, :password_confirmation, :phone, :state, :address, :city)
         end
 end
