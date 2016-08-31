@@ -13,5 +13,5 @@ class Sitter < ActiveRecord::Base
   validates :email, presence: true, :uniqueness => {case_sensitive: false}, :format => { :with => email_regex }
   validates :password_digest, confirmation: true
   validates :end_date, date: {after_or_equal_to: :start_date}, on: [:create]
-  validates :start_date, date: {before_or_equal_to: Date.today}, on: [:create]
+  validates :start_date, date: {after_or_equal_to: Time.now}, on: [:create]
 end

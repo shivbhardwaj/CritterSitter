@@ -52,6 +52,9 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     database_cleaner (1.5.3)
+    date_validator (0.9.0)
+      activemodel
+      activesupport
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -103,14 +106,10 @@ GEM
       json (~> 1.4)
     rename (1.0.2)
       rails (>= 3.0.0)
-<<<<<<< HEAD
-    rmagick (2.16.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
       rspec-mocks (~> 3.5.0)
-=======
->>>>>>> 3010d6c166e876899222883c30b6d947595b0a30
     rspec-core (3.5.2)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -170,6 +169,7 @@ DEPENDENCIES
   carrierwave (~> 0.11.2)
   coffee-rails (~> 4.0.0)
   database_cleaner
+  date_validator
   footnotes (~> 0.0.1)
   hirb
   jbuilder (~> 2.0)
@@ -177,11 +177,7 @@ DEPENDENCIES
   pg
   rails (= 4.1.8)
   rename
-<<<<<<< HEAD
-  rmagick (~> 2.16)
   rspec
-=======
->>>>>>> 3010d6c166e876899222883c30b6d947595b0a30
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
