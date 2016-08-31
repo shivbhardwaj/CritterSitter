@@ -1,23 +1,15 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
 
   get "sitters/new" => "sitters#new"
   get "sitters/:id" => "sitters#show"
   post "sitters" => "sitters#create"
   get "sitters/:id/edit" => "sitters#edit"
-  get '/' => 'owners#index'
+  root 'owners#index'
   post '/create'=>'owners#create'
   get '/profile/addpetpage'=>'owners#addpetpage'
   post '/addpet' =>'owners#addpet'
   patch "sitters/:id" => "sitters#update"
   delete "sitters/:id" => "sitters#destroy"
-=======
-  root 'owners#index'
-  
-  get 'owners/index'
-
-  get 'owners/create'
->>>>>>> 498f9ca... Shawns first commit
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
