@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :pets
+
   get 'proposals/create'
 
   get 'acceptances/create'
