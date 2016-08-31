@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "sitters/:id" => "sitters#show"
   post "sitters" => "sitters#create"
   get "sitters/:id/edit" => "sitters#edit"
-  get '/' => 'owners#index'
+  root 'owners#index'
   post '/create'=>'owners#create'
   get '/profile/addpetpage'=>'owners#addpetpage'
   post '/addpet' =>'owners#addpet'

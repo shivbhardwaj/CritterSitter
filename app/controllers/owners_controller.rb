@@ -38,6 +38,4 @@ class OwnersController < ActionController::Base
         def owner_params
             params.require(:owner).permit(:first_name, :last_name, :email, :zip, :password, :password_confirmation, :phone, :address, :city)
         end
-
-
 end
