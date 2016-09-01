@@ -1,12 +1,11 @@
 <h1>Welcome, <%=@sitter.first_name %></h1>
 <% session[:sitter_id] %>
-<h2>this is sitter zip <%=@zip_sitter%></h2>
 
-<h2>this is dist <%=@distance%></h2>
-<h2>this is test <%=@test%></h2>
 <h3>Propoals near you: </h3>
 
 <% @proposals.each do |p| %>
+	<%@check_dist=Geocoder::Calculations.distance_between(Geocoder.coordinates(p.zip.to_i), Geocoder.coordinates(@zip_sitter.to_i))%>
+	<% if (@check_dist<25)%>
 		<p>Job Details: <%=p.name%></p>
 		<p>Pet Owner: <%=p.owner.first_name%></p>
 		<p>Address: <%=p.owner.address%></p>
@@ -24,6 +23,8 @@
 		  <input type="submit" name="decline_proposal" value="Ignore">
 		</form>
 		<br>
+	<%end%>
+
 <%end%>
 
 <a href="/sitters/<%=session[:sitter_id]%>/edit">Edit</a>

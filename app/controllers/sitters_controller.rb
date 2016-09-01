@@ -36,15 +36,7 @@ class SittersController < ApplicationController
   def show
     @sitter=Sitter.find(session[:sitter_id])
     @zip_sitter=@sitter.zip.to_i
-    @allproposal = Proposal.last
-    @zip_proposal=@allproposal.zip
-    @distance=Geocoder::Calculations.distance_between(Geocoder.coordinates(Proposal.last.zip.to_i), Geocoder.coordinates(@zip_sitter.to_i))
-    # @test=Geocoder::Calculations.distance_between([37.5695845,-122.3926229], [37.3770335,-121.9124743])
-    # @proposals=Proposal.where(@distance==1)
     @proposals=Proposal.all
-    # puts 'this is the proposal zipcode to lat/lon', Geocoder.coordinates(Proposal.zip.to_i)
-    # puts 'this is the sitter zip to lat/long', Geocoder.coordinates(@sitter.zip.to_i)
-    #@proposals=Proposal.where(Geocoder::Calculations.distance_between(Geocoder.coordinates(@zip_propsal.to_i), Geocoder.coordinates(@zip_sitter.to_i)))
   end
 
   def edit
