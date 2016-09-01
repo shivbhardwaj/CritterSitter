@@ -21,19 +21,20 @@ Rails.application.routes.draw do
   post '/sitters/login' => 'sitters#log'
   delete '/sitters' =>'sitters#logout'
   delete '/owners' =>'owners#logout'
+  get "/owners/:id/edit" => "owners#edit"
 
   post "/sitterscreate" => "sitters#create"
 
   get "sitters/:id/edit" => "sitters#edit"
   root 'owners#index'
+  get "owners/oldjobs" => "owners#oldjobs"
+  get "sitters/oldjobs" => "sitters#oldjobs"
   post '/owners'=>'owners#create'
-  get '/profile/addpetpage'=>'owners#addpetpage'
-  post '/addpet' =>'owners#addpet'
+  get '/profile/mypets' => 'owners#mypets'
   get "sitters/:id" => "sitters#show"
   patch "sitters/:id" => "sitters#update"
   delete "sitters/:id" => "sitters#destroy"
 
-  get "owners/:id/edit" => "owners#edit"
   patch "owners/:id" => "owners#update"
 
   # The priority is based upon order of creation: first created -> highest priority.

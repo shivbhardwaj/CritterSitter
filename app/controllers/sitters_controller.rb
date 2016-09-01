@@ -28,6 +28,11 @@ class SittersController < ApplicationController
     end
   end
 
+    def oldjobs
+    @sitter=Sitter.find(session[:sitter_id])
+    @jobs=Sitter.find(session[:sitter_id]).jobs
+  end
+
   def logout
     session[:sitter_id] = nil
     redirect_to "/"
@@ -46,7 +51,7 @@ class SittersController < ApplicationController
 
   def update
    @sitter=Sitter.find(session[:sitter_id])
-   @sitter.update(sitter_params)
+   @sitter.update(first_name: params[:first_name], last_name: params[:last_name], phone: params[:phone], address: params[:address], city: params[:city], zip: params[:zip], email: params[:email], start_date: params[:start_date], end_date: params[:end_date])
    #User.update(params[:id], name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
    redirect_to "/sitters/#{@sitter.id}"
  end

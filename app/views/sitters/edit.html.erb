@@ -1,5 +1,5 @@
 <body>
-<h1>Hey there, <%=@sitter.first_name%>!</h1>
+<h1 id='newfont'>Hey there, <%=@sitter.first_name%>!</h1>
 <h3>Update your profile here... </h3>
 <form id='edit_form' action="/sitters/<%=@sitter.id%>" method="post">
   <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">

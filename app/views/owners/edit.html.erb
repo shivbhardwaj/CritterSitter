@@ -1,8 +1,11 @@
+<body>
+<h1>Hey there</h1>
+<h3>Update your profile here... </h3>
 <% if flash[:errors] %>
-    <h3 style="color: red;"><%= flash[:errors] %></h3>
+   <h3 style="color: red;"><%= flash[:errors] %></h3>
 <% end %>
 <h1>Edit your profile below</h1>
-<form action="/owners/<%=@owner.id%>" method='post'>
+<form action="/owners/<%= session[:id]%>/edit" method='post'>
 <input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
 <input type="hidden" name="_method" value="patch">
 <div><label>First Name:</label><input type='text' name='owner[first_name]' value="<%=@owner.first_name%>"></div>

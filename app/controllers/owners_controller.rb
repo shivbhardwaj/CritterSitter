@@ -11,8 +11,9 @@ class OwnersController < ApplicationController
     redirect_to "/"
   end
 
-  def edit
-    @owner=Owner.find(params[:id])
+    def edit
+    @owner=Owner.find(session[:id])
+    @animals = Animal.all
   end
 
   def update
@@ -22,7 +23,7 @@ class OwnersController < ApplicationController
   end
 
   def log
-    owner = Owner.find_by_email(owner_params[:email])
+    owner = Owner.find_by_email(params[:email])
     if owner
       session[:id] = owner.id
       redirect_to "/owners/#{session[:id]}/show"
@@ -54,28 +55,31 @@ class OwnersController < ApplicationController
         redirect_to :back
       end
 	end
-	# def addpetpage
-  #   @animal = Animal.all
-	# end
+  def mypets
+    @pets=Owner.find(session[:id]).pets
+    @owner=Owner.find(session[:id])
+  end
 
-	def addpet
-		pet = Pet.new(animal_params)
-	  if pet.valid?
-       pet.save
-       redirect_to "/owners/#{session[:id]}/show"
-    else
-        flash[:errors]=pet.errors.full_messages
-        redirect_to :back
-    end
-	end
   def show
     @owner= Owner.find(session[:id])
     @pet = Pet.where(owner_id: session[:id])
     @accepted=Acceptance.all
   end
+
+  def oldjobs
+    @owner=Owner.find(session[:id])
+    @jobs=Owner.find(session[:id]).jobs
+
+  end
+
+
+
+
+
+
 	private
 	 	def animal_params
-      params.require(:pet).permit(:name, :age, :kind)
+      params.require(:pet).permit(:owner_id, :name, :age, :kind)
     end
     def owner_params
       params.require(:owner).permit(:first_name, :last_name, :email, :zip, :password, :password_confirmation, :phone, :state, :address, :city)

@@ -12,6 +12,7 @@
 <link href="stylesheets/font-awesome.css" rel="stylesheet" type="text/css">
 <link href="stylesheets/responsive.css" rel="stylesheet" type="text/css">
 <link href="stylesheets/animate.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
 
 
 <script type="text/javascript" src="javascripts/jquery.1.8.3.min.js"></script>
@@ -25,28 +26,33 @@
 </head>
 <body>
   <% if current_owner %>
-  <form action="/owners" method='post'>
-    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Log Out'>
 
-  </form>
-  <a href="/owners/<%= session[:id] %>/show">Dashboard</a><br>
-  <a href="/owners/<%= session[:id] %>/edit">Edit Profile</a><br>
-  <a href="/pets/new">Add Pet</a><br>
-  <a href="/pets">My Pets</a><br>
-  <a href="dead link">Old Jobs</a>
+<ul class="topnav" id="myTopnav">
+  <li><a href="/owners/<%= session[:id] %>/show">Your Dashboard</a></li>
+  <li><a href="/pets/new">Add Pets</a></li>
+  <li><a href="/profile/mypets">My Pets</a></li>
+  <li><a href="/owners/<%= session[:id] %>/edit">Edit My Profile</a></li>
+  <li><a href="/owners/oldjobs">Old Jobs</a></li>
+  <li><a href="/clear" >Log Out</a></li>
+  <li class="icon">
+    <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+  </li>
+</ul>
 
   <% end %>
+
   <% if current_sitter %>
-  <form action="/sitters" method='post'>
-    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Log Out'>
-  </form>
-  <a href="/sitters/<%= session[:id] %>/show">Dashboard</a>
-  <a href="/sitters/<%= session[:id] %>/edit">Edit Profile</a>
-  <a href="dead link">Old Jobs</a>
+
+  <ul class="topnav" id="myTopnav">
+  <li><a href="/sitters/<%= session[:sitter_id] %>">Your Dashboard</a></li>
+  <li><a href="/sitters/<%= session[:sitter_id] %>/edit">Edit My Profile</a></li>
+  <li><a href="/sitters/oldjobs">Old Jobs</a></li>
+  <li><a href="/clear" >Log Out</a></li>
+  <li class="icon">
+    <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+  </li>
+</ul>
+
   <% end %>
 <%= yield %>
 
