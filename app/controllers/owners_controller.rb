@@ -44,9 +44,9 @@ class OwnersController < ApplicationController
         redirect_to :back
       end
 	end
-	def addpetpage
-    @animal = Animal.all
-	end
+	# def addpetpage
+  #   @animal = Animal.all
+	# end
 
 	def addpet
 		pet = Pet.new(animal_params)

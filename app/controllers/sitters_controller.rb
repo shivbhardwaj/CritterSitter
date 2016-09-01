@@ -62,7 +62,6 @@ class SittersController < ApplicationController
   def update
    @sitter=Sitter.find(session[:sitter_id])
    @sitter.update(sitter_params)
-   #User.update(params[:id], name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
    redirect_to "/sitters/#{@sitter.id}"
  end
 

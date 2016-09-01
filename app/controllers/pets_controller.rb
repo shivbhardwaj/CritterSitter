@@ -10,11 +10,13 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
+    @owner=Owner.find(session[:id])
   end
 
   # GET /pets/new
   def new
     @pet = Pet.new
+    @animals=Animal.all
   end
 
   # GET /pets/1/edit
