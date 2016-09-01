@@ -12,15 +12,11 @@
 		<p>City: <%=p.owner.city%></p>
 		<p>Zip Code: <%= p.zip%></p>
 
-		<form action="/acceptances/create" method="post">
+		<form action="/acceptances" method="post">
 		  <input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
 		  <input type="hidden" name="proposal_id" value="<%= p.id%>">
 		  <input type="hidden" name="owner_id" value="<%= p.owner_id%>">
 		  <input type="submit" name="accept_proposal" value="Accept">
-		</form>
-
-		<form action="/jobs" method="post">
-		  <input type="submit" name="decline_proposal" value="Ignore">
 		</form>
 		<br>
 	<%end%>

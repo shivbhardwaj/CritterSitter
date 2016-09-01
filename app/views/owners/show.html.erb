@@ -8,7 +8,7 @@
 Pet:<% @pet.each do |p| %>
 <input type="checkbox" name="petid[]" value= "<%= p.id %>"><%=p.name%>
 <%end%></p>
-<p>Zip Code:<input type="text" name="proposal[zip]"></p>
+<input type="hidden" name="proposal[zip]" value="<%=@owner.zip%>">
 <p>Start Date:<input type="date" name="proposal[start_date]"></p>
 <p>End Date:<input type="date" name="proposal[end_date]"></p>
 <p><input type="submit" value="Request Proposals Now"></p>
@@ -17,15 +17,26 @@ Pet:<% @pet.each do |p| %>
 <h2>Accepted Proposal By: </h2>
 <% @accepted.each do |a| %>
   <p>Sitter Name: <%=a.sitter.first_name%></p>
-  <p>Sitter Address: <%=a.sitter.address%></p>
+  <p>Start date: <%=a.proposal.start_date%></p>
+  <p>End date: <%=a.proposal.end_date%></p>
+  <p><%=a.sitter.id%></p>
+  <p><%=@owner.id%></p>
+  <p><%=a.proposal.id%></p>
+	<form action="/jobs" method="post">
+		<input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
+		<input type='hidden' name ='job[sitter_id]' value="<%=a.sitter.id%>">
+		<input type="hidden" name="job[owner_id]" value="<%=@owner.id%>">
+		<input type="hidden" name="proposal_id" value="<%=a.proposal.id%>">
+		<input type="hidden" name="job[start_date]" value="<%=a.proposal.start_date%>">
+		<input type="hidden" name="job[end_date]" value="<%=a.proposal.end_date%>">
+	
+		<input type="submit" value="Hire">
+	</form>
 <%end%>
 
 
-<form action="/jobs/create" method="post">
-<input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
-<p><%= %></p>
-<input type="submit" value="Hire">
-</form>
+
+
 
 
 
