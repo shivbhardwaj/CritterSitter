@@ -12,6 +12,7 @@
 <link href="stylesheets/font-awesome.css" rel="stylesheet" type="text/css">
 <link href="stylesheets/responsive.css" rel="stylesheet" type="text/css">
 <link href="stylesheets/animate.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
 
 
 <script type="text/javascript" src="javascripts/jquery.1.8.3.min.js"></script>
@@ -25,11 +26,16 @@
 </head>
 <body>
   <% if current_owner %>
-  <form action="/owners" method='post'>
-    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
-    <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Log Out'>
-  </form>
+<ul class="topnav" id="myTopnav">
+  <li><a href="/owners/<%= current_owner.id %>/show">Your Dashboard</a></li>
+  <li><a href="#news">Show Pets</a></li>
+  <li><a href="/owners/<%= current_owner.id %>/edit">Edit User Profile</a></li>
+  <li><a href="#about">Old Jobs</a></li>
+  <li><a href="#about">Log Out</a></li>
+  <li class="icon">
+    <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+  </li>
+</ul>
   <% end %>
   <% if current_sitter %>
   <form action="/sitters" method='post'>

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   post '/sitters/login' => 'sitters#log'
   delete '/sitters' =>'sitters#logout'
   delete '/owners' =>'owners#logout'
+  get "/owners/:id/edit" => "owners#edit"
 
   post "/sitterscreate" => "sitters#create"
 

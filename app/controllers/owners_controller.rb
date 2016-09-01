@@ -69,4 +69,8 @@ class OwnersController < ApplicationController
     def owner_params
       params.require(:owner).permit(:first_name, :last_name, :email, :zip, :password, :password_confirmation, :phone, :state, :address, :city)
     end
+  def edit
+    @owner=Owner.find(session[:id])
+    @animals = Animal.all
+  end
 end

@@ -1,27 +1,24 @@
-<h2>Hey there, <%=@owner.first_name%></h2>
-
-<h4>Get proposals from available sitters</h4>
-<form action="/proposals" method="post" >
+<link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+<div id='owner_show'>
+<h1 id='newfont'>Hey there, <%=@owner.first_name%></h1>
+<div id='navigation'>
+</div>
+<div id='owner_cont'>
+<form id='propose_form' action="/proposals" method="post" >
 <input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
 <input type="hidden" name = "proposal[owner_id]" value="<%= session[:id] %>">
+<p><h2 id='prop_head'>Get Proposals From Available Sitters</h2></p>
 <p>Description:<input type="text" name="proposal[name]">
-Pet:<% @pet.each do |p| %>
-<input type="checkbox" name="petid[]" value= "<%= p.id %>"><%=p.name%>
-<%end%></p>
-<p>Zip Code:<input type="text" name="proposal[zip]"></p>
-<p>Start Date:<input type="date" name="proposal[start_date]"></p>
-<p>End Date:<input type="date" name="proposal[end_date]"></p>
-<p><input type="submit" value="Request Proposals Now"></p>
+<p id='start'>Start Date:<input id ='for_sub'type="date" name="proposal[start_date]"></p>
+<p id='end'>End Date:<input id='for_sub' type="date" name="proposal[end_date]"></p>
+<p><input id='prop_sub' type="submit" value="Request Proposals Now"></p>
 </form>
+</div>
 
 
-
-
-<form action="/jobs/create" method="post">
+<!-- <form action="/jobs/create" method="post">
 <input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
 <p><%= %></p>
-<input type="submit" value="Hire">
+<input id='hire_sub' type="submit" value="Hire">
 </form>
-
-
-<a href="/pets/new">Add Pet</a>
+</div> -->
