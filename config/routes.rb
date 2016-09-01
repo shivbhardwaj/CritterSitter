@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get 'proposals/show'
 
 
-  post "acceptances/create" => "acceptances#create"
-  post "/jobs/create" => "jobs#create"
+  post "/acceptances" => "acceptances#create"
+  post "/jobs" => "jobs#create"
 
   get '/owners/:id/show' => 'owners#show'
   post '/proposals' => 'proposals#create'
