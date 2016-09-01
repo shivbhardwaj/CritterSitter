@@ -1,37 +1,34 @@
 <% if flash[:errors]%>
 <p><%= flash[:errors] %></p>
 <%end%>
-<h3>Login as Pet Owner</h3>
+         <form id='new_signup' action="/owners/login" method="post">
+					<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+        	<h2 id='hsignup'>Owner Login</h2>
 
-<form action="/owners/login" method="post">
-<input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
-<p>
-	<label for="email">Email</label>
-	<input type="text" name="email" id="email">
+          <label class='signlabel' for="email">Email:</label>
+          <input type="email" id="email" name="sitter[email]">
 
-</p>
-<p>
-	<label for="password">Password</label>
-	<input type="password" name="password" id="password">
-	
-</p>
-	<input type="submit" name="Login">
-</form>
-</br>
+          			<label class='signlabel' for="password">Password:</label>
+          <input type="password" id="password" name="sitter[password]">
 
-<h3>Login as Pet Sitter</h3>
-<form action="/sitters/login" method="post">
-<input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
-<p>
-	<label for="email">Email</label>
-	<input type="text" name="email" id="email">
+          <input id ='signsubs' type="submit" value="Log In as Owner">
+         </fieldset>
+         </form>
 
-</p>
-<p>
-	<label for="password">Password</label>
-	<input type="password" name="password" id="password">
-	
-</p>
-	<input type="submit" name="Login">
-</form>
-</br>
+         <img id='doggie' src='/dog_cat.jpg'>
+
+
+        <form id='new_signup' action="/sitters/login" method="post">
+			<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+        	<h2 id='hsignup'>Sitter Login</h2>
+
+          <label class='signlabel' for="email">Email:</label>
+          <input type="email" id="email" name="sitter[email]">
+
+          			<label class='signlabel' for="password">Password:</label>
+          <input type="password" id="password" name="sitter[password]">
+
+          <input id ='signsubsit' type="submit" value="Log In as Sitter">
+         </fieldset>
+         </form>
+</div>

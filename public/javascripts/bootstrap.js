@@ -312,6 +312,28 @@
     if (this.sliding) return
     return this.slide('prev')
   }
+  
+  var images = [
+       "/pets1.jpg",
+       "/pets2.jpg", 
+       "/pets3.jpg"
+       ];
+
+  var imgCount = images.length;
+
+  var randNumber=Math.floor((Math.random)) * imgCount) + 1);
+
+    imgURL = images[randNumber-1];
+
+    var image=documnet.getElementByClassName("thumb-image_loaded");
+       image[0].setAttribute("src", imgURL);
+       image[0].setAttribute("data-image", imgURL);
+       image[0].setAttribute("data-src", imgURL);
+       image[0].style.visibility="visible";
+     }
+   }
+
+}
 
   Carousel.prototype.slide = function (type, next) {
     var $active   = this.$element.find('.item.active')

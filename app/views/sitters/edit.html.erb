@@ -1,41 +1,43 @@
+<body>
 <h1>Hey there, <%=@sitter.first_name%>!</h1>
-<h3>Update your profile here </h3>
-
-<form action="/sitters/<%=@sitter.id%>" method="post">
+<h3>Update your profile here... </h3>
+<form id='edit_form' action="/sitters/<%=@sitter.id%>" method="post">
   <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
   <input type="hidden" name="_method" value="patch">
   <p><label for="first_name">First Name: </label>
-  <input type="text" id='first_name' name="sitter[first_name]" value="<%=@sitter.first_name%>"></p>
+  <input type="text" id='first_name' name="first_name" value="<%=@sitter.first_name%>"></p>
   <p><label for="last_name">Last Name: </label>
-  <input type="text" id='last_name' name="sitter[last_name]" value="<%=@sitter.last_name%>"></p>
+  <input type="text" id='last_name' name="last_name" value="<%=@sitter.last_name%>"></p>
   <p><label for="phone">Phone Number: </label>
-  <input type="text" id='phone' name="sitter[phone]" value="<%=@sitter.phone%>"></p>
+  <input type="text" id='phone' name="phone" value="<%=@sitter.phone%>"></p>
   <p><label for="address">Address: </label>
-  <input type="text" id='address' name="sitter[address]" value="<%=@sitter.address%>"></p>
+  <input type="text" id='address' name="address" value="<%=@sitter.address%>"></p>
   <p><label for="city">City: </label>
-  <input type="text" id='city' name="sitter[city]" value="<%=@sitter.city%>"></p>
+  <input type="text" id='city' name="city" value="<%=@sitter.city%>"></p>
   <p><label for="zip">Zip Code: </label>
-  <input type="text" id='zip' name="sitter[zip]" value="<%=@sitter.zip%>"></p>
+  <input type="text" id='zip' name="zip" value="<%=@sitter.zip%>"></p>
   <p><label for="email">Email: </label>
-  <input type="text" id='email' name="sitter[email]" value="<%=@sitter.email%>"></p>
+  <input type="text" id='email' name="email" value="<%=@sitter.email%>"></p>
+
   <p>I am available during the following dates:</p>
-  <p>Start: <input type="date" name="sitter[start_date]">
-  End: <input type="date" name="sitter[end_date]"></p>
+  <p>Start: <input type="date" name="start_date">
+  End: <input type="date" name="end_date"></p>
   <p><label for="password">Password: </label>
-  <input type="password" id='password' name="sitter[password]"></p>
+  <input type="password" id='password' name="password"></p>
   <p><label for="password_confirmation">Confirm Password: </label>
-  <input type="password" id='password_confirmation' name="sitter[password_confirmation]"></p>
+  <input type="password" id='password_confirmation' name="password_confirmation"></p>
   <p>I am willing to take care of the following pets:</p>
     <p><% @animals.each do |a| %>
     <input type='checkbox' name='sitter_preference' value="<%=a.id%>"><%=a.kind%>&nbsp;&nbsp;
     <%end%></p>
-  <input type="submit" value="Update Preferences">
+  <input id ='signsub' type="submit" value="Update Preferences">
 </form>
 <br>
 <form action="/sitters/<%=@sitter.id%>" method="post">
   <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
   <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Account">
+  <input id='delete_but' type="submit" value="Delete Account">
 </form>
-
-<a href="/sitters/<%= session[:sitter_id]%>">Back</a>
+<img id='edit_pet' src='/pets1.jpg'>
+<a id ='back_sub' href="/sitters/<%= session[:sitter_id]%>">Go Back</a>
+</body>

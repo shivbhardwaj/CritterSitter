@@ -40,9 +40,8 @@
         </ul>
             <a class="link animated fadeInUp delay-1s" href="#service">Get Started as Pet Sitter</a>
 
-             <a class="link animated fadeInUp delay-1s" href="#owner">Get Started as Pet Owner</a>
-
-             <a class="link animated fadeInUp delay-1s" href="/login">Login</a>
+             <a class="link animated fadeInUp delay-1s" href="#owner">Get Started as Pet Owner</a><br>
+             <a class="links animated home_log fadeInUp delay-1s" href="/login">Login</a>
 
     </div>
 </div>
@@ -50,6 +49,9 @@
 
 <section class="main-section" id="service"><!--main-section-start-->
 	<div class="container">
+  <% if flash[:errors]%>
+<p><%= flash[:errors] %></p>
+<%end%>
     	<h2>Sitter Registration</h2>
     	<h6>Please fill out our registration form.</h6>
       <img id='testimonials' src='/hamsters.jpg'>
