@@ -16,9 +16,25 @@
 </div>
 
 
+
 <!-- <form action="/jobs/create" method="post">
+=======
+<h2>Accepted Proposal By: </h2>
+<% @accepted.each do |a| %>
+  <p>Sitter Name: <%=a.sitter.first_name%></p>
+  <p>Sitter Address: <%=a.sitter.address%></p>
+<%end%>
+
+
+<form action="/jobs/create" method="post">
+>>>>>>> ebd4163d11152769e05c45a1db23ef1269890ba5
 <input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
 <p><%= %></p>
 <input id='hire_sub' type="submit" value="Hire">
 </form>
+<<<<<<< HEAD
 </div> -->
+
+
+
+

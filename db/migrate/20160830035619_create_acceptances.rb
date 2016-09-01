@@ -3,6 +3,7 @@ class CreateAcceptances < ActiveRecord::Migration
     create_table :acceptances do |t|
       t.references :sitter, index: true
       t.references :proposal, index: true
+      t.references :owner, index: true
 
       t.timestamps
     end

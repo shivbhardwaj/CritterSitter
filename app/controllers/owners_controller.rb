@@ -11,8 +11,18 @@ class OwnersController < ApplicationController
     redirect_to "/"
   end
 
+  def edit
+    @owner=Owner.find(params[:id])
+  end
+
+  def update
+    Owner.find(params[:id]).update(owner_params)
+    redirect_to "/owners/#{session[:id]}/show"
+    
+  end
+
   def log
-    owner = Owner.find_by_email(params[:email])
+    owner = Owner.find_by_email(owner_params[:email])
     if owner
       session[:id] = owner.id
       redirect_to "/owners/#{session[:id]}/show"
@@ -61,6 +71,7 @@ class OwnersController < ApplicationController
   def show
     @owner= Owner.find(session[:id])
     @pet = Pet.where(owner_id: session[:id])
+    @accepted=Acceptance.all
   end
 	private
 	 	def animal_params

@@ -59,6 +59,7 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     footnotes (0.0.1)
+    geocoder (1.3.7)
     hike (1.2.3)
     hirb (0.7.3)
     i18n (0.7.0)
@@ -175,6 +176,7 @@ DEPENDENCIES
   database_cleaner
   date_validator
   footnotes (~> 0.0.1)
+  geocoder
   hirb
   jbuilder (~> 2.0)
   jquery-rails

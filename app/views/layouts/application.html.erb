@@ -26,6 +26,7 @@
 </head>
 <body>
   <% if current_owner %>
+
 <ul class="topnav" id="myTopnav">
   <li><a href="/owners/<%= current_owner.id %>/show">Your Dashboard</a></li>
   <li><a href="#news">Show Pets</a></li>
@@ -36,6 +37,19 @@
     <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
   </li>
 </ul>
+
+  <form action="/owners" method='post'>
+    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Log Out'>
+
+  </form>
+  <a href="/owners/<%= session[:id] %>/show">Dashboard</a><br>
+  <a href="/owners/<%= session[:id] %>/edit">Edit Profile</a><br>
+  <a href="/pets/new">Add Pet</a><br>
+  <a href="/pets">My Pets</a><br>
+  <a href="dead link">Old Jobs</a>
+
   <% end %>
   <% if current_sitter %>
   <form action="/sitters" method='post'>
@@ -43,6 +57,9 @@
     <input type='hidden' name='_method' value='delete'>
     <input type='submit' value='Log Out'>
   </form>
+  <a href="/sitters/<%= session[:id] %>/show">Dashboard</a>
+  <a href="/sitters/<%= session[:id] %>/edit">Edit Profile</a>
+  <a href="dead link">Old Jobs</a>
   <% end %>
 <%= yield %>
 

@@ -4,7 +4,7 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    @pets = Pet.all
+    @pets = Pet.where(:owner_id => session[:id])
   end
 
   # GET /pets/1
@@ -58,7 +58,7 @@ class PetsController < ApplicationController
   def destroy
     @pet.destroy
     respond_to do |format|
-      format.html { redirect_to pets_url, notice: 'Pet was successfully destroyed.' }
+      format.html { redirect_to "/pets", notice: 'Pet was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

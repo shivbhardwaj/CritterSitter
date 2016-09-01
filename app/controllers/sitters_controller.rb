@@ -32,9 +32,10 @@ class SittersController < ApplicationController
     session[:sitter_id] = nil
     redirect_to "/"
   end
-  
+
   def show
     @sitter=Sitter.find(session[:sitter_id])
+    @zip_sitter=@sitter.zip.to_i
     @proposals=Proposal.all
   end
 
