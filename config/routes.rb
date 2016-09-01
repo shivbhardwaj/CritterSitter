@@ -8,8 +8,6 @@ Rails.application.routes.draw do
 
   get 'proposals/show'
 
-  get 'pets/show'
-
 
   post "acceptances/:id/create" => "acceptances#create"
   post "/jobs/create" => "jobs#create"
@@ -35,6 +33,8 @@ Rails.application.routes.draw do
   patch "sitters/:id" => "sitters#update"
   delete "sitters/:id" => "sitters#destroy"
 
+  get "owners/:id/edit" => "owners#edit"
+  patch "owners/:id" => "owners#update"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

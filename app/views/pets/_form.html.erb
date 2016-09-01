@@ -25,15 +25,16 @@
     <%= f.number_field :age %>
   </div>
   <div class="select">
-    Animal<select name = "pet[animal_id]">
-      <% @animals.each do |a| %>
-        <option value = "<%= a.id %>"><%=a.kind %></option>
-      <% end %>
-  </div>
+   Animal<select name = "pet[animal_id]">
+     <% @animals.each do |a| %>
+       <option value = "<%= a.id %>"><%=a.kind %></option>
+     <% end %>
+ </div>
   <div class="field">
     <%= f.label :image %><br>
     <%= f.file_field :image %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

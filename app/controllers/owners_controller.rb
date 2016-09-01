@@ -11,6 +11,16 @@ class OwnersController < ApplicationController
     redirect_to "/"
   end
 
+  def edit
+    @owner=Owner.find(params[:id])
+  end
+
+  def update
+    Owner.find(params[:id]).update(owner_params)
+    redirect_to "/owners/#{session[:id]}/show"
+    
+  end
+
   def log
     owner = Owner.find_by_email(params[:email])
     if owner

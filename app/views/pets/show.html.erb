@@ -1,9 +1,12 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_pet_path(@pet) %>
+<a href="/owners/<%=session[:id]%>/show">Dashboard</a>
+
 
 <p>
-  <strong>Owner:</strong>
-  <%= @owner.first_name %>
+  <%= image_tag @pet.image_url(:thumb) if @pet.image? %>
 </p>
+
 
 <p>
   <strong>Name:</strong>
@@ -16,10 +19,7 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <img src="<%= @pet.image_url.to_s%>" alt="a picture of a friggin animal!" %>
+  <strong>Owner:</strong>
+  <%= @owner.first_name %>
 </p>
 
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %> |
-<a href="/owners/<%=session[:id]%>/show">Dashboard</a>
