@@ -1,0 +1,9 @@
+<h1 id='newfont'><%= @owner.first_name %>'s Past Jobs</h1>
+<% @jobs.each do |p| %>
+
+	<p>ID: <%= p.id %></p>
+	<p>Sitter Rating: <%= p.sitter_rating %></p>
+	<p>Start Date: <%= p.start_date %></p>
+	<p>End Date: <%= p.end_date %></p>
+	<br>
+	<% end %>

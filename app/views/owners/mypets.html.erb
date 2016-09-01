@@ -1,0 +1,8 @@
+<h1 id='newfont'><%= @owner.first_name %>'s Pets</h1>
+<% @pets.each do |p| %>
+
+	<p>Name: <a href='/pets/<%=p.id %>'><%= p.name %></a></p>
+	<p>Age: <%= p.age %></p>
+	<p>Animal: <%= p.animal.kind %></p>
+	<br>
+	<% end %>

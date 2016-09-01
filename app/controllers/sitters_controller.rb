@@ -28,6 +28,11 @@ class SittersController < ApplicationController
     end
   end
 
+    def oldjobs
+    @sitter=Sitter.find(session[:sitter_id])
+    @jobs=Sitter.find(session[:sitter_id]).jobs
+  end
+
   def logout
     session[:sitter_id] = nil
     redirect_to "/"

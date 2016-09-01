@@ -8,7 +8,11 @@
 <input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
 <input type="hidden" name = "proposal[owner_id]" value="<%= session[:id] %>">
 <p><h2 id='prop_head'>Get Proposals From Available Sitters</h2></p>
-<p>Description:<input type="text" name="proposal[name]">
+<p>Name:<input type="text" name="proposal[name]"></p>
+Pet:<% @pet.each do|p| %>
+<input type='checkbox' name='petid[]' value='<%= p.id %>'><%=p.name %>
+<% end %>
+<p>Zip:<input type="text" name="proposal[zip]"></p>
 <p id='start'>Start Date:<input id ='for_sub'type="date" name="proposal[start_date]"></p>
 <p id='end'>End Date:<input id='for_sub' type="date" name="proposal[end_date]"></p>
 <p><input id='prop_sub' type="submit" value="Request Proposals Now"></p>
