@@ -1,6 +1,6 @@
 class SittersController < ApplicationController
   layout 'application'
-  #profile creation for sitter
+
   def log
     sitter = Sitter.find_by(params[:email])
     if sitter
@@ -9,19 +9,15 @@ class SittersController < ApplicationController
     else
       flash[:errors] = ["Invalid login"]
       redirect_to :back
-    end 
+    end
   end
+
   def create
     sitter = Sitter.new(sitter_params)
     if sitter.valid?
       sitter.save
       session[:sitter_id]=sitter.id
       preference=params[:preference]
-
-      new_sitter=Sitter.last
-      puts new_sitter.id, 'This is new sitter id'
-      puts new_sitter, 'this is new sitter'
-      puts preference, 'this is @pref'
       preference.each do |ani|
         Prefence.create(sitter_id: new_sitter.id, animal_id: ani.to_i)
       end
@@ -31,7 +27,12 @@ class SittersController < ApplicationController
       redirect_to "/"
     end
   end
-  #sitter dashboard to view/accept proposals
+
+  def logout
+    session[:sitter_id] = nil
+    redirect_to "/"
+  end
+  
   def show
     @sitter=Sitter.find(session[:sitter_id])
     @proposals=Proposal.all
@@ -44,7 +45,7 @@ class SittersController < ApplicationController
 
   def update
    @sitter=Sitter.find(session[:sitter_id])
-   @sitter.update(first_name:params[:first_name],last_name:params[:last_name],phone:params[:phone],address:params[:address])
+   @sitter.update(sitter_params)
    #User.update(params[:id], name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
    redirect_to "/sitters/#{@sitter.id}"
  end

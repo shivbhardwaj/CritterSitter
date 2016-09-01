@@ -1,11 +1,11 @@
 class CreatePets < ActiveRecord::Migration
   def change
     create_table :pets do |t|
+      t.references :owner, index: true
       t.string :name
       t.integer :age
-      t.string :picture
       t.references :animal, index: true
-      t.references :owner, index: true
+      t.string :image
 
       t.timestamps
     end

@@ -24,6 +24,20 @@
 
 </head>
 <body>
+  <% if current_owner %>
+  <form action="/owners" method='post'>
+    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Log Out'>
+  </form>
+  <% end %>
+  <% if current_sitter %>
+  <form action="/sitters" method='post'>
+    <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value='Log Out'>
+  </form>
+  <% end %>
 <%= yield %>
 
 </body>

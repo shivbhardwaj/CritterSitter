@@ -8,7 +8,7 @@
           <label class='signlabel' for="email">Email:</label>
           <input type="email" id="email" name="sitter[email]">
 
-          			<label class='signlabel' for="password">Password:</label>
+          <label class='signlabel' for="password">Password:</label>
           <input type="password" id="password" name="sitter[password]">
 
           <input id ='signsubs' type="submit" value="Log In as Owner">
@@ -32,3 +32,26 @@
          </fieldset>
          </form>
 </div>
+
+<h3>Login as Pet Owner</h3>
+
+<form action="/owners/login" method="post">
+	<input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
+	<p><label for="email">Email</label>
+	<input type="text" name="email" id="email"></p>
+	<p><label for="password">Password</label>
+	<input type="password" name="password" id="password"></p>
+	<input type="submit" name="Login">
+</form>
+<br>
+<br>
+
+<h3>Login as Pet Sitter</h3>
+<form action="/sitters/login" method="post">
+	<input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
+	<p><label for="email">Email</label>
+	<input type="text" name="email" id="email"></p>
+	<p><label for="password">Password</label>
+	<input type="password" name="password" id="password"></p>
+	<input type="submit" name="Login">
+</form>
