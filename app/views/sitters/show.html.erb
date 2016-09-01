@@ -1,23 +1,29 @@
 <h1>Welcome, <%=@sitter.first_name %></h1>
 <% session[:sitter_id] %>
+<h2>this is sitter zip <%=@zip_sitter%></h2>
 
-
-<h3>Propoals</h3>
+<h2>this is dist <%=@distance%></h2>
+<h2>this is test <%=@test%></h2>
+<h3>Propoals near you: </h3>
 
 <% @proposals.each do |p| %>
-<p>Job Details: <%=p.name%></p>
-<%= p.id%>
-  <form action="/acceptance/<%= session[:sitter_id] %>/create" method="post">
-    <input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
-    <input type="hidden" name="proposal_id" value="<%= p.id%>">
-    <input type="submit" name="accept_proposal" value="Accept">
-  </form>
-  
-  <form action="/jobs" method="post">
-      <input type="submit" name="decline_proposal" value="Ignore">
-  </form>
-  <br>
+		<p>Job Details: <%=p.name%></p>
+		<p>Pet Owner: <%=p.owner.first_name%></p>
+		<p>Address: <%=p.owner.address%></p>
+		<p>City: <%=p.owner.city%></p>
+		<p>Zip Code: <%= p.zip%></p>
+
+		<form action="/acceptances/create" method="post">
+		  <input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
+		  <input type="hidden" name="proposal_id" value="<%= p.id%>">
+		  <input type="hidden" name="owner_id" value="<%= p.owner_id%>">
+		  <input type="submit" name="accept_proposal" value="Accept">
+		</form>
+
+		<form action="/jobs" method="post">
+		  <input type="submit" name="decline_proposal" value="Ignore">
+		</form>
+		<br>
 <%end%>
 
 <a href="/sitters/<%=session[:sitter_id]%>/edit">Edit</a>
-

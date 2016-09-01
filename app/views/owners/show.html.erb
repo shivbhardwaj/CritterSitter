@@ -14,7 +14,11 @@ Pet:<% @pet.each do |p| %>
 <p><input type="submit" value="Request Proposals Now"></p>
 </form>
 
-
+<h2>Accepted Proposal By: </h2>
+<% @accepted.each do |a| %>
+  <p>Sitter Name: <%=a.sitter.first_name%></p>
+  <p>Sitter Address: <%=a.sitter.address%></p>
+<%end%>
 
 
 <form action="/jobs/create" method="post">

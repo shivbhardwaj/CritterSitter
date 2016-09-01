@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'pets/show'
 
 
-  post "acceptances/:id/create" => "acceptances#create"
+  post "acceptances/create" => "acceptances#create"
   post "/jobs/create" => "jobs#create"
 
   get '/owners/:id/show' => 'owners#show'
