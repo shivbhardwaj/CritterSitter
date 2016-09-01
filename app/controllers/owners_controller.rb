@@ -71,6 +71,7 @@ class OwnersController < ApplicationController
   def show
     @owner= Owner.find(session[:id])
     @pet = Pet.where(owner_id: session[:id])
+    @accepted=Acceptance.all
   end
 	private
 	 	def animal_params

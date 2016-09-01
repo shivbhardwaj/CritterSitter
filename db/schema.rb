@@ -19,10 +19,12 @@ ActiveRecord::Schema.define(version: 20160831221405) do
   create_table "acceptances", force: true do |t|
     t.integer  "sitter_id"
     t.integer  "proposal_id"
+    t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "acceptances", ["owner_id"], name: "index_acceptances_on_owner_id", using: :btree
   add_index "acceptances", ["proposal_id"], name: "index_acceptances_on_proposal_id", using: :btree
   add_index "acceptances", ["sitter_id"], name: "index_acceptances_on_sitter_id", using: :btree
 
