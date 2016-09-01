@@ -19,7 +19,7 @@ class SittersController < ApplicationController
       session[:sitter_id]=sitter.id
       preference=params[:preference]
       preference.each do |ani|
-        Prefence.create(sitter_id: new_sitter.id, animal_id: ani.to_i)
+        Prefence.create(sitter_id: sitter.id, animal_id: ani.to_i)
       end
       redirect_to "/sitters/#{sitter.id}"
     else

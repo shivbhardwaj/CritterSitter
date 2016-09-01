@@ -22,7 +22,7 @@ class OwnersController < ApplicationController
   end
 
   def log
-    owner = Owner.find_by_email(params[:email])
+    owner = Owner.find_by_email(owner_params[:email])
     if owner
       session[:id] = owner.id
       redirect_to "/owners/#{session[:id]}/show"
