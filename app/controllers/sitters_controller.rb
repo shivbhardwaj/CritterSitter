@@ -40,8 +40,10 @@ class SittersController < ApplicationController
 
   def show
     @sitter=Sitter.find(session[:sitter_id])
+    @jobs=Sitter.find(session[:sitter_id]).jobs
     @zip_sitter=@sitter.zip.to_i
-    @proposals=Proposal.all
+    @proposals=Proposal.all    
+    @accepted = Acceptance.where(sitter_id:session[:sitter_id])
   end
 
   def edit
