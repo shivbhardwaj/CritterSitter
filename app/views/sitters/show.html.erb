@@ -1,7 +1,7 @@
 <h1 id='newfont'>Welcome, <%=@sitter.first_name %></h1>
 <% session[:sitter_id] %>
 
-<h3>Propoals near you: </h3>
+<h3>Sitter Requests near you: </h3>
 
 <% @proposals.each do |p| %>
 	<%@check_dist=Geocoder::Calculations.distance_between(Geocoder.coordinates(p.zip.to_i), Geocoder.coordinates(@zip_sitter.to_i))%>
