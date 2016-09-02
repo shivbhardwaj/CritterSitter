@@ -1,3 +1,7 @@
+<% if flash[:success] %>
+	<h4><%=flash[:success]%></h4>
+<% end%>
+
 <link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
 <div id='dash_wrap'>
 <div id='owner_show'>
@@ -12,14 +16,10 @@
 Pet:<% @pet.each do|p| %>
 <input type='checkbox' name='petid[]' value='<%= p.id %>'><%=p.name %>
 <% end %>
-<!-- <p>Zip:</p>
-<p style="font-size:20px;"><%= @owner.zip %></p>
-<p>Address:</p>
-<p style="font-size:20px"><%= @owner.address %></p><br> -->
 <p id='start'>Start Date:<input id ='for_sub'type="date" name="proposal[start_date]"></p>
 <p id='end'>End Date:<input id='for_sub' type="date" name="proposal[end_date]"></p>
 <p><input id='prop_sub' type="submit" value="REQUEST A SITTER NOW"></p>
-
+<input type="hidden" name="proposal[zip]" value="<%=@owner.zip%>">
 </form>
 
 <form id='accepted_form' action="/proposals" method="post" >

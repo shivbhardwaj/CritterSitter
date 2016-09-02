@@ -1,7 +1,4 @@
 <p id="notice"><%= notice %></p>
-<%= link_to 'Edit', edit_pet_path(@pet) %>
-<!-- <a href="/owners/<%=session[:id]%>/show">Dashboard</a> -->
-<!-- <a href="/profile/mypets">My Pets</a> -->
 
 <p>
   <%= image_tag @pet.image_url(:thumb) if @pet.image? %>
@@ -21,5 +18,10 @@
 <p>
   <strong>Owner:</strong>
   <%= @owner.first_name %>
+</p>
+
+<p>
+  <strong>Animal:</strong>
+  <%= @pet.animal.kind %>
 </p>
 
