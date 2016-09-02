@@ -3,9 +3,6 @@
 <h1 id='newfont'>Welcome, <%=@sitter.first_name %></h1>
 <% session[:sitter_id] %>
 
-<hr>
-<h3>Sitter Requests near you: </h3>
-
 <div id='propose_form_two'>
 	<h3 id='prop_head'>Sitter Requests near you </h3>
 
@@ -45,28 +42,57 @@
 		<%end%>
 	<%end%>
 <%end%>
+</table>
+</div>
 <br>
-<hr>
-<h3>Bids: </h3>
-<%@accepted.each do |a|%>
-	<br>
-	<p>Job Details: <%=a.proposal.name%></p>
-	<p>Pet Owner: <%=a.owner.first_name%></p>
-	<p>Address: <%=a.owner.address%></p>
-	<p>City: <%=a.owner.city%></p>
-<%end%>
-<br>
-<hr>
-<h3>Your Old Jobs: </h3>
-<% @jobs.each do |p| %>
-	<br>
-	<p>ID: <%= p.id %></p>
-	<p>Owner Rating: <%= p.owner_rating %></p>
-	<p>Start Date: <%= p.start_date %></p>
-	<p>End Date: <%= p.end_date %></p>
-	<br>
-<% end %>
-<hr>
-<a href="/sitters/<%=session[:sitter_id]%>/edit">Edit</a>
 
+<div id='propose_form_two'>
+<h3 id='prop_head'>Bids</h3>
+	<br>
+<table>
+<thead>
+<tr>
+	<th>Job Details</th>
+	<th>Pet Owner</th>
+	<th>Address</th>
+	<th>City</th>
+</tr>
+</thead>
+<tbody>
+<%@accepted.each do |a|%>
+	<tr>
+	<td><%=a.proposal.name%></td>
+	<td><%=a.owner.first_name%></td>
+	<td><%=a.owner.address%></td>
+	<td><%=a.owner.city%></td>
+	</tr>
+</tbody>
+<%end%>
+
+</table>
+</div>
+<br>
+
+<div id='propose_form_two'>
+<h3 id='prop_head'>ACTIVE JOBS </h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Owner Rating</th>
+<th>Start Date</th>
+<th>End Date</th>
+</tr>
+<thead>
+<tbody>
+<% @jobs.each do |p| %>
+	<tr>
+	<td><%= p.id %></td>
+	<td><%= p.owner_rating %></td>
+	<td><%= p.start_date %></td>
+	<td><%= p.end_date %></td>
+	</tr>
+</tbody>
+<%end%>
+</table>
 </div>

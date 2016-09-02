@@ -789,7 +789,7 @@ ul.topnav li.icon {display: none;}
 	height:1200px;
 	background-image: url('/sheperds.jpg');
 	background-repeat:no-repeat;
-	background-position: 650px 500px;
+	background-position: 600px 910px;
 }
 
 #accepted_form{
@@ -993,7 +993,7 @@ tfoot tr th:last-child {
 #propose_form_two{
   overflow: scroll;
   width: 900px;
-  height: 350px;
+  height: 250px;
   margin: 0px 20px 5px 25px;
   padding: 10px 50px;
   background: #293e6a;
