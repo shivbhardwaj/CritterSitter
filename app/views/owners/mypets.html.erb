@@ -1,8 +1,29 @@
+<div id='pets_page'>
 <h1 id='newfont'><%= @owner.first_name %>'s Pets</h1>
-<% @pets.each do |p| %>
-
-	<p>Name: <a href='/pets/<%=p.id %>'><%= p.name %></a></p>
-	<p>Age: <%= p.age %></p>
-	<p>Animal: <%= p.animal.kind %></p>
-	<br>
-	<% end %>
+<table id='pet_tab'>
+  <thead id='pet_head'>
+    <tr>
+    <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Animal</th>
+      <th>Photo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pets.each do |p| %>
+    <tr>
+    	<td><form method='post' action='/remove/<%=p.id%>'><input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>"><input id='rem_pet' type='submit' value='Remove'></form></td>
+      <td><a href='/pets/<%=p.id %>'><%= p.name %></a></td>
+      <td><%= p.age %></td>
+      <td><%= p.animal.kind %></td>
+      <td> <%= image_tag p.image_url(:thumb) if p.image? %></td>
+    </tr>
+    <%end%>
+  </tbody>
+  <tfoot>
+    <tr>
+    </tr>
+  </tfoot>
+</table>
+<div>

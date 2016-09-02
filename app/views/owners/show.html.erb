@@ -1,46 +1,49 @@
 <link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+<div id='dash_wrap'>
 <div id='owner_show'>
-<h1 id='newfont'>Hey there, <%=@owner.first_name%></h1>
-<div id='navigation'>
-</div>
-<div id='owner_cont'>
+<h1 id='newfont'>Hi, <%=@owner.first_name%></h1>
+
 <form id='propose_form' action="/proposals" method="post" >
 <input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
 <input type="hidden" name = "proposal[owner_id]" value="<%= session[:id] %>">
-<p>Description:<input type="text" name="proposal[name]">
-Pet:<% @pet.each do |p| %>
-<input type="checkbox" name="petid[]" value= "<%= p.id %>"><%=p.name%>
-<%end%></p>
-<input type="hidden" name="proposal[zip]" value="<%=@owner.zip%>">
-<p>Start Date:<input type="date" name="proposal[start_date]"></p>
-<p>End Date:<input type="date" name="proposal[end_date]"></p>
-<p><input type="submit" value="Request Proposals Now"></p>
-
-<p><h2 id='prop_head'>Get Proposals From Available Sitters</h2></p>
-<p>Name:<input type="text" name="proposal[name]"></p>
+<input type="hidden" name ='proposal[zip]' value="<%= @owner.zip %>">
+<p><h2 id='prop_head'>Request a Sitter Near You</h2></p>
+<p>Describe Your Request:<input type="text" name="proposal[name]"></p>
 Pet:<% @pet.each do|p| %>
 <input type='checkbox' name='petid[]' value='<%= p.id %>'><%=p.name %>
 <% end %>
-<p>Zip:<input type="text" name="proposal[zip]"></p>
+<!-- <p>Zip:</p>
+<p style="font-size:20px;"><%= @owner.zip %></p>
+<p>Address:</p>
+<p style="font-size:20px"><%= @owner.address %></p><br> -->
 <p id='start'>Start Date:<input id ='for_sub'type="date" name="proposal[start_date]"></p>
 <p id='end'>End Date:<input id='for_sub' type="date" name="proposal[end_date]"></p>
-<p><input id='prop_sub' type="submit" value="Request Proposals Now"></p>
+<p><input id='prop_sub' type="submit" value="REQUEST A SITTER NOW"></p>
 
 </form>
-</div>
 
-
-
-
-<h2>Accepted Proposal By: </h2>
+<form id='accepted_form' action="/proposals" method="post" >
+<input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
+<input type="hidden" name = "proposal[owner_id]" value="<%= session[:id] %>">
+<input type="hidden" name =''
+<p><h2 id='prop_head'>Accepted Proposals</h2></p>
 <% @accepted.each do |a| %>
-  <p>Sitter Name: <%=a.sitter.first_name%></p>
-  <p>Start date: <%=a.proposal.start_date%></p>
-  <p>End date: <%=a.proposal.end_date%></p>
-  <p><%=a.sitter.id%></p>
-  <p><%=@owner.id%></p>
-  <p><%=a.proposal.id%></p>
-	<form action="/jobs" method="post">
+<table>
+  <caption>Request</caption>
+  <thead>
+    <tr>
+      <th>Sitter Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%=a.sitter.first_name%></td>
+      <td><%=a.proposal.start_date.strftime("%B %d, %Y")%></td>
+      <td><%=a.proposal.end_date.strftime("%B %d, %Y")%></td>
+      <td><form action="/jobs" method="post">
 		<input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
 		<input type='hidden' name ='job[sitter_id]' value="<%=a.sitter.id%>">
 		<input type="hidden" name="job[owner_id]" value="<%=@owner.id%>">
@@ -48,10 +51,18 @@ Pet:<% @pet.each do|p| %>
 		<input type="hidden" name="job[start_date]" value="<%=a.proposal.start_date%>">
 		<input type="hidden" name="job[end_date]" value="<%=a.proposal.end_date%>">
 	
-		<input type="submit" value="Hire">
-	</form>
+		<input id='acc_sub' type="submit" value="HIRE"></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+    </tr>
+  </tfoot>
+</table>
 <%end%>
-
+</form>
+</div>
+</div>
 
 
 

@@ -12,7 +12,10 @@ class PetsController < ApplicationController
   def show
     @owner=Owner.find(session[:id])
   end
-
+  def remove
+    pet=Pet.find(params[:id]).destroy
+    redirect_to :back
+  end
   # GET /pets/new
   def new
     @pet = Pet.new
@@ -52,16 +55,13 @@ class PetsController < ApplicationController
       end
     end
   end
-
-  # DELETE /pets/1
-  # DELETE /pets/1.json
   def destroy
     @pet.destroy
     respond_to do |format|
       format.html { redirect_to "/pets", notice: 'Pet was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.

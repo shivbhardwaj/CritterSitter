@@ -550,8 +550,9 @@ h1{
   display:inline-block;
   color:#222222;
 }
-#delete_but{
-  padding: 19px 39px 18px 39px;
+
+#delete_but {
+	padding: 19px 39px 18px 39px;
   color: #FFF;
   background-color: red;
   font-size: 18px;
@@ -564,6 +565,22 @@ h1{
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
   margin-bottom: 10px;
   margin-left:100px;
+}
+
+#delete_btn_sitter{
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: red;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 10px;
+  width: 525px;
+  border: 1px solid red;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+  margin-left:25px;
 }
 #edit_pet{
 	margin-left:100px;
@@ -583,36 +600,57 @@ h1{
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
   margin-bottom: 10px;
 }
+#back_sub_two{
+  padding: 10px 29px 8px 29px;
+  color: #FFF;
+  background-color: blue;
+  font-size: 14px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 8px;
+  width: 50px;
+  border: 1px solid blue;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+  margin-left: 25px;
+  margin-top: 40px;
+}
 #propose_form{
   width: 900px;
-  margin: 0px 20px 10px 150px;
+  margin: 0px 20px 5px 25px;
   padding: 10px 50px;
-  background: #3232FF;
+  background: #293e6a;
   border-radius: 10px;
   /*vertical-align: top;*/
   display:inline-block;
   color:white;
 }
 #prop_sub{
-  padding: 10px 29px 8px 29px;
-  color: #FFF;
-  background-color: green;
-  font-size: 14px;
-  text-align: center;
-  font-style: normal;
-  border-radius: 8px;
-  width: 100%;
-  border: 1px solid green;
-  border-width: 1px 1px 3px;
-  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
-  margin-bottom: 10px;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border: solid white   2px;
+    border-radius: 10px;
+    padding: 14px 25px;
+    font-family: Arial;
+    font-size: 18px;
+    color: #e69500  ;
 }
 #newfont{
 	padding-top:0px;
 	display:block;
-  font: 400 100px/1.3 'Oleo Script', Helvetica, sans-serif;
+  font: 400 50px/1.3 'Oleo Script', Helvetica, sans-serif;
   color: #2b2b2b;
   text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+}
+#newfont_two{
+padding-top:0px;
+display:block;
+font: 400 25px/1.3 'Oleo Script', Helvetica, sans-serif;
+color: #2b2b2b;
+text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+
 }
 #hire_sub{
   padding: 10px 29px 8px 29px;
@@ -680,6 +718,7 @@ h1{
 }
 .field{
 	width:200px;
+
 }
 .select{
 	width:225px;
@@ -745,8 +784,237 @@ ul.topnav li a:hover {background-color: #555;}
 /* Hide the list item that contains the link that should open and close the topnav on small screens */
 ul.topnav li.icon {display: none;}
 
-@media screen and (min-width: 480px) 
+#sitter_show{
+	padding:25px;
+	height:1200px;
+	background-image: url('/sheperds.jpg');
+	background-repeat:no-repeat;
+	background-position: 650px 500px;
+}
 
+#accepted_form{
+  width: 920px;
+  height: 300px;
+  margin: 5px 20px 5px 25px;
+  padding: 10px 50px;
+  background: #293e6a;
+  border-radius: 10px;
+  /*vertical-align: top;*/
+  display:inline-block;
+  color:white;
+  overflow: scroll;
+}
+table {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  width:100%;
+}
+
+caption {
+  text-align: left;
+  color: silver;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px;
+}
+
+thead {
+  background: SteelBlue;
+  color: white;
+}
+
+th,
+td {
+  padding: 5px 10px;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background: WhiteSmoke;
+}
+
+tbody tr td:nth-child(2) {
+  text-align:center;
+}
+
+tbody tr td:nth-child(3),
+tbody tr td:nth-child(4) {
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+tfoot {
+  background: SeaGreen;
+  color: white;
+  text-align: right;
+}
+
+tfoot tr th:last-child {
+  font-family: monospace;
+}
+#acc_sub{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border: solid #4CAF50  2px;
+    border-radius: 10px;
+    padding: 14px 25px;
+    font-family: Arial;
+    font-size: 18px;
+    color: #4CAF50 ;
+}
+
+#acc_sub {
+   -webkit-transition-duration: 0.4s; /* Safari */
+   transition-duration: 0.4s;
+}
+
+#acc_sub:hover {
+   background-color: #4CAF50 ; /* Green */
+   color: white;
+   font-color: white;
+}
+#prop_sub{
+	 -webkit-transition-duration: 0.4s; /* Safari */
+   transition-duration: 0.4s;
+}
+#prop_sub:hover {
+   background-color: #e69500  ; /* Green */
+   color: white;
+   font-color: white;
+}
+#dash_wrap{
+	height:1200px;
+	background-image: url('/lil_dogs.jpg');
+	background-repeat:no-repeat;
+	background-position: 650px 600px;
+}
+.cr_pet{
+	width: 200px;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom:10px;
+    background-color: white;
+    border: solid #4CAF50  2px;
+    border-radius: 10px;
+    padding: 14px 25px;
+    font-family: Arial;
+    font-size: 18px;
+    color: #4CAF50 ;
+    -webkit-transition-duration: 0.4s; /* Safari */
+   transition-duration: 0.4s;
+}
+.cr_pet:hover{
+	background-color: #4CAF50  ; /* Green */
+   color: white;
+   font-color: white;
+
+}
+#choose{
+	color:blue;
+}
+#add_new_pet{
+	height:1000px;
+	padding:25px;
+	background-image:url('/rabbits.jpg');
+	background-repeat: no-repeat;
+}
+#pet_tab{
+	  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  		width:600px;
+}
+#pet_head{
+	background: #293e6a;
+  	color: white;
+}
+#pets_page{
+	padding:15px;
+}
+#rem_pet{
+	    width: 100%;
+    height: 50px;
+    background-color: white;
+    border: solid #b30000  2px;
+    border-radius: 10px;
+    padding: 14px 25px;
+    font-family: Arial;
+    font-size: 18px;
+    color: #b30000 ;
+    -webkit-transition-duration: 0.4s; /* Safari */
+   transition-duration: 0.4s;
+}
+#rem_pet:hover{
+	background-color: #b30000 ; /* Green */
+   color: white;
+   font-color: white;
+}
+#own_edit_form{
+	width: 425px;
+  margin: 0px 20px 5px 25px;
+  padding:25px;
+  background: #293e6a;
+  border-radius: 10px;
+  /*vertical-align: top;*/
+  display:inline-block;
+  color:white;
+}
+.edit_form_input{
+	width:380px;
+	height:100px;
+
+}
+.edit_form_input_two{
+	width:450px;
+	height:100px;
+
+}
+#up_but{
+		    width: 100%;
+    height: 50px;
+    background-color: white;
+    border: solid #e69500  2px;
+    border-radius: 10px;
+    padding: 14px 25px;
+    font-family: Arial;
+    font-size: 18px;
+    color: #e69500 ;
+    -webkit-transition-duration: 0.4s; /* Safari */
+   transition-duration: 0.4s;
+}
+#up_but:hover{
+	background-color: #e69500 ; /* Green */
+   color: white;
+   font-color: white;
+}
+#edit_background{
+	background-image: url('/cat_dog_cat.jpg');
+	background-repeat: no-repeat;
+	background-position: 130px ;
+}
+#propose_form_two{
+  overflow: scroll;
+  width: 900px;
+  height: 350px;
+  margin: 0px 20px 5px 25px;
+  padding: 10px 50px;
+  background: #293e6a;
+  border-radius: 10px;
+  /*vertical-align: top;*/
+  display:inline-block;
+  color:white;
+}
+#sitter_edit_form{
+	width: 475px;
+  margin: 0px 20px 5px 25px;
+  padding:25px;
+  background: #293e6a;
+  border-radius: 10px;
+  /*vertical-align: top;*/
+  display:inline-block;
+  color:white;
+}
+
+
+@media screen and (min-width: 480px) 
 
 
 
