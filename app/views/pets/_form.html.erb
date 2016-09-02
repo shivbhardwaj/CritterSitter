@@ -25,12 +25,12 @@
        <option value = "<%= a.id %>"><%=a.kind %></option>
      <% end %>
  </div>
-  <div class="field">
+  <div class="field" >
     <%= f.label :image %><br>
     <%= f.file_field :image %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create Pet', :class => 'cr_pet'%>
   </div>
 <% end %>

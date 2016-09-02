@@ -1,26 +1,49 @@
+<div id='sitter_show'>
+
 <h1 id='newfont'>Welcome, <%=@sitter.first_name %></h1>
 <% session[:sitter_id] %>
+
 <hr>
 <h3>Sitter Requests near you: </h3>
-<% @proposals.each do |p| %>
-	<%if not Acceptance.where(proposal_id: p.id.to_i, sitter_id: session[:sitter_id])[0] %>
 
-	<%@check_dist=Geocoder::Calculations.distance_between(Geocoder.coordinates(p.zip.to_i), Geocoder.coordinates(@zip_sitter.to_i))%>
-	<% if (@check_dist<25)%>
-		<p>Job Details: <%=p.name%></p>
-		<p>Pet Owner: <%=p.owner.first_name%></p>
-		<p>Address: <%=p.owner.address%></p>
-		<p>City: <%=p.owner.city%></p>
-		<p>Zip Code: <%= p.zip%></p>
+<div id='propose_form_two'>
+	<h3 id='prop_head'>Sitter Requests near you </h3>
 
-		<form action="/acceptances" method="post">
-		  <input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
-		  <input type="hidden" name="proposal_id" value="<%= p.id%>">
-		  <input type="hidden" name="owner_id" value="<%= p.owner_id%>">
-		  <input type="submit" name="accept_proposal" value="Accept">
-		</form>
+	<% @proposals.each do |p| %>
+		<%if not Acceptance.where(proposal_id: p.id.to_i, sitter_id: session[:sitter_id])[0] %>
+
+		<%@check_dist=Geocoder::Calculations.distance_between(Geocoder.coordinates(p.zip.to_i), Geocoder.coordinates(@zip_sitter.to_i))%>
+		<% if (@check_dist<25)%>
+		<table>
+		  	<thead>
+		    	<tr>
+					<th>Job Details</th>
+					<th>Pet Owner</th>
+					<th>Address</th>
+					<th>City</th>
+					<th>Zip Code</th>
+					<th></th>
+				</tr>
+			</thead>
+  			<tbody>
+			  <tr>
+			  	<td><%=p.name%></td>
+			  	<td><%=p.owner.first_name%></td>
+			  	<td> <%=p.owner.address%></td>
+			  	<td><%=p.owner.city%></td>
+			  	<td><%= p.zip%></td>
+				<td>
+					<form action="/acceptances" method="post">
+				  		<input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
+					  	<input type="hidden" name="proposal_id" value="<%= p.id%>">
+					  	<input type="hidden" name="owner_id" value="<%= p.owner_id%>">
+					  	<input id='acc_sub' type="submit" name="accept_proposal" value="Accept">
+					</form>
+				</td>
+			  </tr>
+			</tbody>
+		<%end%>
 	<%end%>
-<%end%>
 <%end%>
 <br>
 <hr>
@@ -28,10 +51,10 @@
 <%@accepted.each do |a|%>
 	<br>
 	<p>Job Details: <%=a.proposal.name%></p>
-		<p>Pet Owner: <%=a.owner.first_name%></p>
-		<p>Address: <%=a.owner.address%></p>
-		<p>City: <%=a.owner.city%></p>
-		<%end%>
+	<p>Pet Owner: <%=a.owner.first_name%></p>
+	<p>Address: <%=a.owner.address%></p>
+	<p>City: <%=a.owner.city%></p>
+<%end%>
 <br>
 <hr>
 <h3>Your Old Jobs: </h3>
@@ -42,6 +65,8 @@
 	<p>Start Date: <%= p.start_date %></p>
 	<p>End Date: <%= p.end_date %></p>
 	<br>
-	<% end %>
+<% end %>
 <hr>
 <a href="/sitters/<%=session[:sitter_id]%>/edit">Edit</a>
+
+</div>

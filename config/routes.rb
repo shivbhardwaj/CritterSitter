@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get '/owners/:id/show' => 'owners#show'
   post '/proposals' => 'proposals#create'
+  post '/remove/:id' => "pets#remove"
 
   get '/clear' => 'owners#clear'
   get '/login' => 'owners#login'
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
   get "sitters/:id" => "sitters#show"
   patch "sitters/:id" => "sitters#update"
   delete "sitters/:id" => "sitters#destroy"
+
 
   patch "owners/:id" => "owners#update"
 

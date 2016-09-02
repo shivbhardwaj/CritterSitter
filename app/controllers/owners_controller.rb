@@ -68,9 +68,10 @@ class OwnersController < ApplicationController
 
   def oldjobs
     @owner=Owner.find(session[:id])
-    @jobs=Owner.find(session[:id]).jobs.where(:end_date<Time.now)
-
+    # @jobs=Owner.find(session[:id]).jobs.where(:end_date<Time.now)
+    @jobs=Owner.find(session[:id]).jobs
   end
+
 
 
 

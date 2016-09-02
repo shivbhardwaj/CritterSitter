@@ -28,7 +28,7 @@
   <% if current_owner %>
 
 <ul class="topnav" id="myTopnav">
-  <li><a href="/owners/<%= session[:id] %>/show">Your Dashboard</a></li>
+  <li><a href="/owners/<%= session[:id] %>/show">My Dashboard</a></li>
   <li><a href="/pets/new">Add Pets</a></li>
   <li><a href="/profile/mypets">My Pets</a></li>
   <li><a href="/owners/<%= session[:id] %>/edit">Edit My Profile</a></li>
@@ -44,7 +44,7 @@
   <% if current_sitter %>
 
   <ul class="topnav" id="myTopnav">
-  <li><a href="/sitters/<%= session[:sitter_id] %>">Your Dashboard</a></li>
+  <li><a href="/sitters/<%= session[:sitter_id] %>">My Dashboard</a></li>
   <li><a href="/sitters/<%= session[:sitter_id] %>/edit">Edit My Profile</a></li>
   <li><a href="/sitters/oldjobs">Old Jobs</a></li>
   <li><a href="/clear" >Log Out</a></li>
