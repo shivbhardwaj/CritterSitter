@@ -46,7 +46,8 @@ group :test, :development do
   gem 'rspec'
 end
 
-
+gem 'twilio-ruby', '~> 4.12', '>= 4.12.1'
+gem 'figaro'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -21,13 +21,13 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
+    @animals=Animal.all
   end
 
   # POST /pets
   # POST /pets.json
   def create
     @pet = Pet.new(pet_params)
-
     respond_to do |format|
       if @pet.save
         format.html { redirect_to @pet, notice: 'Pet was successfully created.' }
