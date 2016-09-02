@@ -11,13 +11,16 @@
 <form id='propose_form' action="/proposals" method="post" >
 <input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
 <input type="hidden" name = "proposal[owner_id]" value="<%= session[:id] %>">
-<p>Description:<input type="text" name="proposal[name]">
-Pet:<% @pet.each do |p| %>
-<input type="checkbox" name="petid[]" value= "<%= p.id %>"><%=p.name%>
-<%end%></p>
 <input type="hidden" name="proposal[zip]" value="<%=@owner.zip%>">
+<<<<<<< HEAD
+=======
+Pet:<% @pet.each do|p| %>
+<input type='checkbox' name='petid[]' value='<%= p.id %>'><%=p.name %>
+<% end %>
+>>>>>>> bead6bc92277adf78a1ef5b7b95416a3fc660aeb
 <p id='start'>Start Date:<input id ='for_sub'type="date" name="proposal[start_date]"></p>
 <p id='end'>End Date:<input id='for_sub' type="date" name="proposal[end_date]"></p>
+<p>Additional Information:<input type="text" name="proposal[name]">
 <p><input id='prop_sub' type="submit" value="Request Proposals Now"></p>
 
 </form>

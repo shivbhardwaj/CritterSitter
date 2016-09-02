@@ -14,7 +14,4 @@ class Sitter < ActiveRecord::Base
   validates :password_digest, confirmation: true
   validates :end_date, date: {after_or_equal_to: :start_date}, on: [:create, :update]
   validates :start_date, date: {after_or_equal_to: Time.now}, on: [:create, :update]
-  # validates_date  :end_date, :on_or_after => :start_date,
-  #                 :on_or_after_message => 'must be after start date'
-  # validates_date :start_date, :on_or_after=> Date.today, on: [:create]
 end
