@@ -73,11 +73,6 @@ class OwnersController < ApplicationController
   end
 
 
-
-
-
-
-
 	private
 	 	def animal_params
       params.require(:pet).permit(:owner_id, :name, :age, :kind)

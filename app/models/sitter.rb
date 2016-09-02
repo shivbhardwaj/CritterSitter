@@ -14,4 +14,20 @@ class Sitter < ActiveRecord::Base
   validates :password_digest, confirmation: true
   validates :end_date, date: {after_or_equal_to: :start_date}, on: [:create, :update]
   validates :start_date, date: {after_or_equal_to: Time.now.to_date}, on: [:create, :update]
+
+  def rating_sitter(sitter_id)
+    job=Job.where(sitter_id: sitter_id)
+    count=1
+    rating=5
+
+    if job
+      job.each do |j|
+        if j.sitter_rating
+            rating=rating+j.sitter_rating
+            count+=1
+        end 
+      end
+      @rating = (rating/count).ceil
+    end
+  end
 end

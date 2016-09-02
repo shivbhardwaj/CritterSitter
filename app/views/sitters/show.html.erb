@@ -5,30 +5,30 @@
 
 <div id='propose_form_two'>
 	<h3 id='prop_head'>Sitter Requests near you </h3>
+	<table>
+		  	<thead>
+		    	<tr>
+					<th>Job Details</th>
+					<th>Pet Owner</th>
+					<th>City</th>
+					<th>Zip Code</th>
+					<th>Rating</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
 
 	<% @proposals.each do |p| %>
 		<%if not Acceptance.where(proposal_id: p.id.to_i, sitter_id: session[:sitter_id])[0] %>
 
 		<%@check_dist=Geocoder::Calculations.distance_between(Geocoder.coordinates(p.zip.to_i), Geocoder.coordinates(@zip_sitter.to_i))%>
 		<% if (@check_dist<25)%>
-		<table>
-		  	<thead>
-		    	<tr>
-					<th>Job Details</th>
-					<th>Pet Owner</th>
-					<th>Address</th>
-					<th>City</th>
-					<th>Zip Code</th>
-					<th></th>
-				</tr>
-			</thead>
   			<tbody>
 			  <tr>
 			  	<td><%=p.name%></td>
 			  	<td><%=p.owner.first_name%></td>
-			  	<td> <%=p.owner.address%></td>
 			  	<td><%=p.owner.city%></td>
-			  	<td><%= p.zip%></td>
+			  	<td><%=p.zip%></td>
+			  	<td><%=p.owner.rating_owner(p.owner_id.to_i)%>/5</td>
 				<td>
 					<form action="/acceptances" method="post">
 				  		<input type='hidden' name ='authenticity_token' value="<%=form_authenticity_token%>">
@@ -54,8 +54,8 @@
 <tr>
 	<th>Job Details</th>
 	<th>Pet Owner</th>
-	<th>Address</th>
 	<th>City</th>
+	<th>Zip</th>
 </tr>
 </thead>
 <tbody>
@@ -63,8 +63,8 @@
 	<tr>
 	<td><%=a.proposal.name%></td>
 	<td><%=a.owner.first_name%></td>
-	<td><%=a.owner.address%></td>
 	<td><%=a.owner.city%></td>
+	<td><%=a.owner.zip%></td>
 	</tr>
 </tbody>
 <%end%>
@@ -78,8 +78,10 @@
 <table>
 <thead>
 <tr>
-<th>ID</th>
-<th>Owner Rating</th>
+<th>Owner</th>
+<th>Address</th>
+<th>City</th>
+<th>Zip</th>
 <th>Start Date</th>
 <th>End Date</th>
 </tr>
@@ -87,8 +89,10 @@
 <tbody>
 <% @jobs.each do |p| %>
 	<tr>
-	<td><%= p.id %></td>
-	<td><%= p.owner_rating %></td>
+	<td><%= p.owner.first_name %></td>
+	<td><%= p.owner.address %></td>
+	<td><%= p.owner.city %></td>
+	<td><%= p.owner.zip%></td>
 	<td><%= p.start_date %></td>
 	<td><%= p.end_date %></td>
 	</tr>

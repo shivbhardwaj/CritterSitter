@@ -10,4 +10,20 @@ class Owner < ActiveRecord::Base
   validates :password, confirmation: true
   validates :password_confirmation, presence:true
 
+  ####### rating logic #####
+  
+	def rating_owner(owner_id)
+	    job=Job.where(owner_id: owner_id)
+	    count=1
+	    rating=5
+	    if job
+	      job.each do |j|
+	        if j.owner_rating
+	            rating=rating+j.owner_rating
+	            count+=1
+	        end 
+	      end
+	      @rating = (rating/count).ceil
+	    end
+	end
 end
