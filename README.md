@@ -1,0 +1,2 @@
+# CritterSitter
+Collaborated with a team of 5 developers to create a fully-functional pet-sitting web app. Solely responsible for implementing Twilio SMS API, Ruby Geocoder Gem, logic for the sitter and pet profile creation, and RSpec testing. Assisted with database design, owner profile creation, rating and proposal logic, debugging, and deployment. Completed project in 4 days. CritterSitter connects pet owners and pet sitters in a 25-mile radius. Tech used: Ruby, Rails, WebBrick, PostgreSQL, SQLite, Bootstrap, HTML5, CSS3
